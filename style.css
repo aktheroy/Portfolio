@@ -1,10 +1,21 @@
+/* Particles Background */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Behind all content */
+}
+canvas {
+  display: block;
+}
+
 /* General Styles */
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: white;
-  background-color: #131212;
-  scroll-behavior: smooth;
+  background-color: #131212; /* Dark theme */
+  scroll-behavior: smooth; /* Enables smooth scrolling */
 }
 
 /* Main Container */
@@ -19,7 +30,6 @@ body {
 /* Header and Navigation */
 header {
   position: relative;
-  left: 20px;
   width: 100%;
   z-index: 1;
 }
@@ -30,15 +40,14 @@ header {
   align-items: center;
   padding: 20px 20px;
   margin-top: 10px;
-  background-color: rgba(0, 0, 0, 0.80);
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
   border-radius: 12px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px); /* Blur effect behind */
   position: fixed;
   width: 90%;
-  flex-direction: row;
-  transition: all 0.3s ease-in-out;
   left: 50%;
   transform: translateX(-50%);
+  transition: all 0.3s ease-in-out;
 }
 
 .topnav nav {
@@ -59,7 +68,6 @@ header {
 
 /* Hollow Triangle Logo */
 .triangle-logo svg {
-  display: block;
   width: 40px;
   height: 40px;
 }
@@ -76,11 +84,11 @@ header {
   top: -2px;
   left: -2px;
   background-size: 600%;
-  z-index: -1;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
+  z-index: -2;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
   filter: blur(8px);
-  animation: glowing 20s linear infinite ;
+  animation: glowing 20s linear infinite;
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
   opacity: 0;
@@ -106,69 +114,89 @@ header {
   gap: 10px;
 }
 
-/* Sections */
+/* Sections Styling */
 .content-section {
-  min-height: 100vh;
+  min-height: 100vh; /* Full viewport height */
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .container {
   max-width: 1200px;
   padding: 20px;
+}
+
+/* Individual Section Containers */
+.home-container, .about-container, .skills-container, .projects-container, .contact-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 80px;
+  padding: 20px;
+  margin: auto;
+  width: 90%;
+  max-width: 1000px;
+  background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent dark background */
+  border-radius: 10px; /* Rounded edges for containers */
+}
+
+/* Social Icons Container */
+.social-icons-container {
+  display: flex;
+  flex-direction: column; /* Arrange icons vertically */
+  align-items: center;
+  gap: 20px; /* Space between icons */
+}
+
+
+/* Home Section Specific Styling */
+.text-container {
+  margin-bottom: 20px;
   text-align: center;
 }
 
-#home {
-  background-color: #1e1e1e79;
+.social-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-/* Social Sidebar */
 /* Social Sidebar */
 .home__social {
   position: fixed;
   top: 50%; /* Center vertically */
-  left: 20px; /* Align slightly inside the viewport */
-  transform: translateY(-50%); /* Ensure perfect vertical centering */
+  left: 20px; /* Slightly inside the viewport */
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 20px;
-  z-index: 10; /* Ensure it appears above the background */
+  z-index: 10; /* Above background and content */
 }
 
 .home__social-icon {
   color: white;
   font-size: 1.8rem;
+  text-decoration: none;
   display: flex;
   align-items: center;
-  text-decoration: none;
   transition: transform 0.3s, color 0.3s;
 }
 
 .home__social-icon:hover {
-  transform: scale(1.2); /* Slight zoom effect */
-  color: #fefefe; /* Match the color theme */
+  transform: scale(1.2);
 }
 
-/* Instagram Hover */
-.home__social-icon.instagram:hover {
-  color: #E1306C; /* Instagram's pinkish color */
-}
+/* Custom Hover Colors for Icons */
+.home__social-icon.instagram:hover { color: #E1306C; } /* Instagram Pink */
+.home__social-icon.linkedin:hover { color: #0A66C2; } /* LinkedIn Blue */
+.home__social-icon.github:hover { color: #171515; } /* GitHub Black */
+.home__social-icon.phone:hover { color: #48FF00; } /* Phone Green */
 
-/* LinkedIn Hover */
-.home__social-icon.linkedin:hover {
-  color: #0A66C2; /* LinkedIn's blue */
-}
-
-
-/* Phone Hover */
-.home__social-icon.phone:hover {
-  color: #48FF00; /* Bright green for phone */
-}
-
-
+/* Social Tooltip */
 .home__social-tooltip {
   position: absolute;
   left: 30px;
@@ -186,69 +214,149 @@ header {
 .home__social-icon:hover .home__social-tooltip {
   opacity: 1;
   visibility: visible;
-  transform: translateX(0); /* Make tooltip visible */
+  transform: translateX(0);
+}
+/* Title and Typing Effect */
+.title-container {
+  text-align: center; /* Center align title and subtitle */
+}
+
+.title-container h2 {
+  font-size: 1.8rem; /* Title font size */
+  color: white;
+  margin: 0;
+  align-items:start;
+  display: flex;
+}
+
+.title-container h1 {
+  font-size: 2rem; /* Subtitle font size */
+  color: white;
+  margin: -26px 0 0 0;
+}
+
+.dynamic-text {
+  display: inline-flex; /* Ensures the text stays inline and doesn't shift other content */
+  width: 300px; /* Set a fixed width to match the longest word ("Machine Learning") */
+  text-align: left; /* Align the typing animation to the left */
+  white-space: nowrap; /* Prevent the text from wrapping */
+  overflow: hidden; /* Hide overflow during animations */
+  color: #48FF00; /* Highlight color */
+
+}
+
+li::marker {
+  color: rgb(102, 255, 0);
+}
+
+
+
+
+/* About Section */
+.about-container p {
+  text-align: center;
+  font-size: 1.2rem; /* Slightly larger font for better readability */
+}
+
+/* Skills Section */
+.skills-container p {
+  font-size: 1rem;
+}
+
+/* Projects Section */
+.projects-container p {
+  font-size: 1rem;
+}
+
+/* Contact Section */
+.contact-container .button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+}
+
+/* Glowing Triangle Logo */
+.triangle-logo {
+  position: relative;
+  display: block;
+}
+
+
+/* Remove Plus Icon from Desktop */
+.topnav .icon {
+  display: none; /* Hidden by default */
+}
+
+
+/* Cursor with Gradient Effect */
+.dynamic-text::after {
+  content: "_"; /* Add the cursor character */
+  display: inline-block; /* Ensure it aligns properly with the text */
+  width: 1ch; /* Cursor width */
+  animation: blink 0.8s step-start infinite; /* Blinking effect */
+  background: linear-gradient(
+    45deg,
+    #f40000, #FF7300, #02cfc5, #48FF00,
+    #0099ff, #0d00ff, #bb00ff, #FF0000
+  );
+  -webkit-background-clip: text; /* Show gradient on text */
+  -webkit-text-fill-color: transparent; /* Hide text background */
+}
+
+/* Blinking Animation */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Invisible */
+  }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .home__social {
-    left: 10px;
+  .topnav {
+    padding: 10px;
+    flex-direction: row; /* Stacks items vertically */
+    bottom: 4%;
+  }
+  .triangle-logo {
+    display: block; /* Ensure it is not hidden */ /* Center-align in mobile view */
+    position: relative;
   }
 
-  .home__social-tooltip {
-    font-size: 0.8rem;
-  }
-}
-
-
-
-#skills {
-  background-color: #1e1e1e79;
-}
-
-#projects {
-  background-color: #1e1e1e79;
-}
-
-#contact {
-  background-color: #1e1e1e79;
-}
-
-/* Particles Background */
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-/* Active Navbar Glowing Effect */
-.topnav a.active {
-  background-color: #fff;
-  color: #ede9e9;
-}
-
-/* Mobile Navbar Icon */
-.topnav .icon {
-  display: none;
-  cursor: pointer;
-}
-
-
-@media (max-width: 768px) {
   .topnav .icon {
-    display: block;
-    cursor: pointer;
+    display: block; /* Show the icon */
+    cursor: pointer; /* Add pointer for interaction */
+    color: white; /* Match the theme color */
+    font-size: 1.5rem; /* Adjust size for visibility */
   }
 
   .topnav a {
-    display: none;
+    display: none; /* Initially hidden */
+    padding: 4px 4px;
+  }
+
+  .topnav.responsive nav {
+    flex-direction: row; /* Stack links vertically */
+    gap: 12px; /* Add spacing between links */
+    align-items: center; /* Center-align links */
   }
 
   .topnav.responsive a {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 10px;
+    display: block; /* Ensure links are visible */
+    width: 100%; /* Make links take full width of the container */
+    text-align: center; /* Center the text */
+    padding: 10px 0; /* Add vertical padding for better spacing */
   }
+
+  .home__social {
+    left: 4px; /* Adjust sidebar for smaller screens */
+  }
+
+  .home__social-tooltip {
+    font-size: 0.4rem;
+  }
+
+  
 }
