@@ -12,7 +12,8 @@ canvas {
 /* General Styles */
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: white;
   background-color: #131212; /* Dark theme */
   scroll-behavior: smooth; /* Enables smooth scrolling */
@@ -73,12 +74,19 @@ header {
 }
 
 /* Glowing Buttons */
-.topnav a::before, .glow-button::before {
+.topnav a::before,
+.glow-button::before {
   content: "";
   background: linear-gradient(
     45deg,
-    #f40000, #FF7300, #02cfc5, #48FF00,
-    #0099ff, #0d00ff, #bb00ff, #FF0000
+    #f40000,
+    #ff7300,
+    #02cfc5,
+    #48ff00,
+    #0099ff,
+    #0d00ff,
+    #bb00ff,
+    #ff0000
   );
   position: absolute;
   top: -2px;
@@ -95,12 +103,19 @@ header {
 }
 
 @keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
-.topnav a:hover::before, .glow-button:hover::before {
+.topnav a:hover::before,
+.glow-button:hover::before {
   opacity: 1;
 }
 
@@ -130,7 +145,11 @@ header {
 }
 
 /* Individual Section Containers */
-.home-container, .about-container, .skills-container, .projects-container, .contact-container {
+.home-container,
+.about-container,
+.skills-container,
+.projects-container,
+.contact-container {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -140,7 +159,12 @@ header {
   margin: auto;
   width: 90%;
   max-width: 1000px;
-  background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent dark background */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Slightly transparent dark background */
   border-radius: 10px; /* Rounded edges for containers */
 }
 
@@ -151,7 +175,6 @@ header {
   align-items: center;
   gap: 20px; /* Space between icons */
 }
-
 
 /* Home Section Specific Styling */
 .text-container {
@@ -191,10 +214,18 @@ header {
 }
 
 /* Custom Hover Colors for Icons */
-.home__social-icon.instagram:hover { color: #E1306C; } /* Instagram Pink */
-.home__social-icon.linkedin:hover { color: #0A66C2; } /* LinkedIn Blue */
-.home__social-icon.github:hover { color: #171515; } /* GitHub Black */
-.home__social-icon.phone:hover { color: #48FF00; } /* Phone Green */
+.home__social-icon.instagram:hover {
+  color: #e1306c;
+} /* Instagram Pink */
+.home__social-icon.linkedin:hover {
+  color: #0a66c2;
+} /* LinkedIn Blue */
+.home__social-icon.github:hover {
+  color: #171515;
+} /* GitHub Black */
+.home__social-icon.phone:hover {
+  color: #48ff00;
+} /* Phone Green */
 
 /* Social Tooltip */
 .home__social-tooltip {
@@ -225,7 +256,7 @@ header {
   font-size: 1.8rem; /* Title font size */
   color: white;
   margin: 0;
-  align-items:start;
+  align-items: start;
   display: flex;
 }
 
@@ -241,16 +272,12 @@ header {
   text-align: left; /* Align the typing animation to the left */
   white-space: nowrap; /* Prevent the text from wrapping */
   overflow: hidden; /* Hide overflow during animations */
-  color: #48FF00; /* Highlight color */
-
+  color: #48ff00; /* Highlight color */
 }
 
 li::marker {
   color: rgb(102, 255, 0);
 }
-
-
-
 
 /* About Section */
 .about-container p {
@@ -281,12 +308,10 @@ li::marker {
   display: block;
 }
 
-
 /* Remove Plus Icon from Desktop */
 .topnav .icon {
   display: none; /* Hidden by default */
 }
-
 
 /* Cursor with Gradient Effect */
 .dynamic-text::after {
@@ -296,8 +321,14 @@ li::marker {
   animation: blink 0.8s step-start infinite; /* Blinking effect */
   background: linear-gradient(
     45deg,
-    #f40000, #FF7300, #02cfc5, #48FF00,
-    #0099ff, #0d00ff, #bb00ff, #FF0000
+    #f40000,
+    #ff7300,
+    #02cfc5,
+    #48ff00,
+    #0099ff,
+    #0d00ff,
+    #bb00ff,
+    #ff0000
   );
   -webkit-background-clip: text; /* Show gradient on text */
   -webkit-text-fill-color: transparent; /* Hide text background */
@@ -305,7 +336,8 @@ li::marker {
 
 /* Blinking Animation */
 @keyframes blink {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1; /* Fully visible */
   }
   50% {
@@ -357,6 +389,4 @@ li::marker {
   .home__social-tooltip {
     font-size: 0.4rem;
   }
-
-  
 }
